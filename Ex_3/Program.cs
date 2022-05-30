@@ -74,7 +74,7 @@ namespace Ex_3
                 //int m2Linie = matrice2.GetLength(0);
                 int m2Coloana = matrice2.GetLength(1);
 
-                int aux = 0;
+                int aux;
 
                 int[,] produsMatrice = new int[m1Linie, m2Coloana];
 

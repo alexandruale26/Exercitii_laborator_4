@@ -50,7 +50,6 @@ namespace Ex_7
                 PiramidaNumerelor(numar - 1, index + 1);
             }
 
-                
         }
     }
 }

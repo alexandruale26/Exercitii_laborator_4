@@ -6,7 +6,7 @@ namespace Ex_6
     {
         static void Main(string[] args)
         {
-            // Scrieti o functie recursiva care va afisa al n-lea element din
+            // Scrieti o functie recursiva care va calcula al n-lea element din
             // sirul lui Fibonacci, n fiind citit de la tastatura.
 
 

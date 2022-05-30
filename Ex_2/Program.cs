@@ -20,20 +20,17 @@ namespace Ex_2
             int m = CitireNumere();
             int k = CitireNumere();
 
-            int suma = 0, max = 0;
+            int[,,] matrice3D = CitireMatrice(n, m, k);
 
-            int[,,] matrice3D = new int[n, m, k];
+            int suma = SumaElementeMatrice(n, m, k, matrice3D);
+            int max = MaxElementMatrice(n,m,k,matrice3D);
 
-
-
-            CalculeMatrice3D(ref suma, ref max, matrice3D);
             AfisareMatrice(matrice3D);
 
             Console.WriteLine($"Suma elementelor matricei este --> {suma}");
             Console.WriteLine($"Cel mai mare element al matricei este --> {max}");
 
           
-
             static int CitireNumere()
             {
                 Console.WriteLine("Introduceti dimensiunea");
@@ -41,46 +38,28 @@ namespace Ex_2
             }
 
 
-            static void CitireMatrice(int i, int j, int y, int[,,] matrice3D)
+            static int[,,] CitireMatrice(int n, int m, int k)
             {
-                Console.WriteLine("Introduceti elementul");
-                matrice3D[i, j, y] = int.Parse(Console.ReadLine());
-            }
+                int[,,] matriceTemp = new int[n, m, k];
 
-
-            static void SumaElementeMatrice(ref int suma, int i, int j, int y, int[,,] matrice3D)
-            {
-                suma += matrice3D[i, j, y];
-            }
-
-
-            static void MaxElementMatrice(ref int max, int i, int j, int y, int[,,] matrice3D)
-            {
-                max = Math.Max(max, matrice3D[i, j, y]);
-            }
-
-
-            static void CalculeMatrice3D(ref int suma, ref int max, int[,,] matrice3D)
-            {
-                for (int i = 0; i < matrice3D.GetLength(0); i++)
+                for (int i = 0; i < n; i++)
                 {
-                    for (int j = 0; j < matrice3D.GetLength(1); j++)
+                    for (int j = 0; j < m; j++)
                     {
-                        for (int y = 0; y < matrice3D.GetLength(2); y++)
+                        for (int y = 0; y < k; y++)
                         {
-                            CitireMatrice(i, j, y, matrice3D);
-                            SumaElementeMatrice(ref suma, i, j, y, matrice3D);
-                            MaxElementMatrice(ref max, i, j, y, matrice3D);
+                            Console.WriteLine("Introduceti elementul");
+                            matriceTemp[i, j, y] = int.Parse(Console.ReadLine());
                         }
                     }
                 }
-                Console.WriteLine();
+                return matriceTemp;
             }
 
 
             static void AfisareMatrice(int[,,] matrice3D)
             {
-                Console.WriteLine("Matricea este:");
+                Console.WriteLine("\nMatricea este:");
 
                 for (int i = 0; i < matrice3D.GetLength(0); i++)
                 {
@@ -97,6 +76,41 @@ namespace Ex_2
                 Console.WriteLine();
             }
 
+
+            static int SumaElementeMatrice(int n, int m, int k, int[,,] matrice3D)
+            {
+                int suma = 0;
+
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < m; j++)
+                    {
+                        for (int y = 0; y < k; y++)
+                        {
+                            suma += matrice3D[i, j, y];
+                        }
+                    }
+                }
+                return suma;
+            }
+
+
+            static int MaxElementMatrice(int n, int m, int k, int[,,] matrice3D)
+            {
+                int max = 0;
+
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < m; j++)
+                    {
+                        for (int y = 0; y < k; y++)
+                        {
+                            max = Math.Max(max, matrice3D[i, j, y]);
+                        }
+                    }
+                }
+                return max;
+            }
 
         }
     }

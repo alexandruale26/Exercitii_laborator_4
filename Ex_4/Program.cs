@@ -6,7 +6,7 @@ namespace Ex_4
     {
         static void Main(string[] args)
         {
-            // Scrieti o functie recursiva care va afisa in ordine
+            // Scrieti o functie recursiva care va {afisa} in ordine
             // elementele unui vector de intregi.
 
 
